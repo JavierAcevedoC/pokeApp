@@ -1,0 +1,46 @@
+<mat-card class="card">
+  
+  <div *ngIf="isError else pokemonView">
+    <ng-container *ngTemplateOutlet="errorView"></ng-container>
+  </div>
+
+  <ng-template #errorView>
+    <mat-card-header>
+      <mat-card-title>Vaya algo ha ocurrido</mat-card-title>
+      <mat-card-subtitle>Intentalo mas tarde</mat-card-subtitle>
+      <label>
+        <mat-icon color="warn">
+            highlight_off
+        </mat-icon>
+      </label>
+    </mat-card-header>
+  </ng-template>
+  
+  <ng-template #pokemonView >
+    <mat-card-header>
+      <img mat-card-avatar class="header-image" src="{{ pokemon.image }}">
+      <mat-card-title>{{ pokemon.name }}</mat-card-title>
+      <mat-card-subtitle>Nº {{ pokemon.id }}</mat-card-subtitle>
+    </mat-card-header>
+  
+    <img mat-card-image src="{{ pokemon.image }}" alt="pokemon">
+  
+    <mat-card-content>
+      <mat-chip-list>
+        <mat-chip >Tipo: {{ pokemon.type }}</mat-chip>
+        <mat-chip >Altura: {{ pokemon.height }}</mat-chip>
+        <mat-chip >Peso: {{ pokemon.weight }}</mat-chip>
+      </mat-chip-list>
+    </mat-card-content>
+  </ng-template>
+
+
+ <button mat-fab color="primary" [routerLink]="['/home']">
+    <label>
+        <mat-icon>
+            arrow_back
+        </mat-icon>
+    </label>
+  </button>
+
+</mat-card>
