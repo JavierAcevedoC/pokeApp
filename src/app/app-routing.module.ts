@@ -6,6 +6,7 @@ import { PokeDetailComponent } from './components/poke-detail/poke-detail.compon
 const routes: Routes = [
   {path: 'home', component: PokeTableComponent},
   {path: '', pathMatch:'full', redirectTo: 'home'},
+  {path: 'pokeDetail/:id', component: PokeDetailComponent},
   {path: '**', pathMatch:'full', redirectTo: 'home'}
 ];
 
